@@ -9,6 +9,13 @@ export const getUsers = async (req: Request, res: Response) => {
       orderBy: {
         createdAt: "desc",
       },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        foto: true,
+        createdAt: true,
+  },
     });
 
     res.json(users);
@@ -75,6 +82,13 @@ export const showUser = async (req: Request, res: Response) => {
       where: {
         id: Number(id),
       },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        foto: true,
+        createdAt: true,
+  },
     });
 
     if (!user) {
@@ -113,6 +127,13 @@ export const updateUser = async (req: Request, res: Response) => {
         id: Number(id),
       },
       data: dataUpdate,
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        foto: true,
+        createdAt: true,
+      },
     });
 
     res.json({
